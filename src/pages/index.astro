@@ -1,14 +1,122 @@
 ---
-import Container from "@components/container.astro";
-import Cta from "@components/cta.astro";
-import Features from "@components/features.astro";
-import Hero from "@components/hero.astro";
-import Logos from "@components/logos.astro";
 import Layout from "@layouts/Layout.astro";
+import { Picture } from "astro:assets";
+import stashpayLogo from "assets/6670fc418f3a63564c7e5beffbd15175cd6dfcc9.png";
+import logoVector from "assets/65d7c305f660271fbd84180682f9e25acebb0859.svg";
+import logoIcon from "assets/20947f1d61c4c51ad97ba313ad4659975d09de5a.png";
+import backgroundImage from "assets/f3dcf9b1c6b734c2dcac56b8b8b8f70aefe16ee2.png";
+import phoneScreenshot from "assets/111ad0bc0d3f7e18ad005653eef16f03fc8df356.png";
+import Link from "@components/ui/link.astro";
 ---
 
-<Layout title="">
-  <Container>
-    <Hero />
-  </Container>
+<Layout title="StashPay - A simple wallet for everyone">
+  <div 
+    class="min-h-screen bg-center bg-cover bg-no-repeat"
+    style={`background-image: url('${backgroundImage.src}')`}
+  >
+    <!-- Navigation -->
+    <nav class="flex justify-center pt-8 pb-2">
+      <div class="flex gap-2">
+        <a href="/about" class="px-2 py-2 text-sm font-normal text-gray-800 hover:bg-gray-200 rounded-lg transition-colors">About</a>
+        <a href="/blog" class="px-2 py-2 text-sm font-normal text-gray-800 hover:bg-gray-200 rounded-lg transition-colors">Blog</a>
+        <a href="/privacy" class="px-2 py-2 text-sm font-normal text-gray-800 hover:bg-gray-200 rounded-lg transition-colors">Privacy</a>
+        <a href="/terms" class="px-2 py-2 text-sm font-normal text-gray-800 hover:bg-gray-200 rounded-lg transition-colors">Terms</a>
+        <a href="/contact" class="px-2 py-2 text-sm font-normal text-gray-800 hover:bg-gray-200 rounded-lg transition-colors">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-6 relative z-10">
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 lg:gap-16">
+        <!-- Left Column: Logo and Text -->
+        <div class="flex-1 max-w-md lg:max-w-lg">
+          <!-- Logo Container (Figma SVG) -->
+          <div class="flex flex-row gap-3 items-center justify-start p-0 relative w-full mb-4">
+            <div class="h-[139px] overflow-clip relative shrink-0 w-[269px]">
+              <!-- StashPay Text Vector -->
+              <div class="absolute inset-[8.34%_0.37%_60.96%_27.32%]">
+                <img alt="StashPay Text" class="block max-w-none size-full" src={logoVector.src} />
+              </div>
+              <!-- Logo Icon -->
+              <div class="absolute inset-[5.73%_51.52%_0.51%_0.25%]">
+                <img
+                  alt="StashPay Icon"
+                  class="block max-w-none size-full"
+                  height="130.335"
+                  src={logoIcon.src}
+                  width="129.728"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 tracking-tight leading-tight">
+            A simple wallet for everyone.
+          </h1>
+
+          <!-- Feature List -->
+          <div class="space-y-1 text-lg lg:text-xl text-gray-700 mb-6">
+            <p class="leading-relaxed">
+              <span class="text-black">⚫️</span>
+              <span class="text-gray-600 ml-2">Pay in Bitcoin, universally accessible</span>
+            </p>
+            <p class="leading-relaxed">
+              <span class="text-black">⚪️</span>
+              <span class="text-gray-600 ml-2">Low fees: built on Lightning & Liquid</span>
+            </p>
+            <p class="leading-relaxed">
+              <span class="text-black">⚫️</span>
+              <span class="text-gray-600 ml-2">Your keys, your L-BTC</span>
+            </p>
+            <p class="leading-relaxed">
+              <span class="text-black">⚪️</span>
+              <span class="text-gray-600 ml-2">Fully Open Source</span>
+            </p>
+          </div>
+
+          <!-- Download Buttons -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <Link
+              href="https://testflight.apple.com/join/HcmDhGAA"
+              target="_blank"
+              class="flex gap-1 items-center justify-center"
+              rel="noopener">
+              📱 Download for iOS
+            </Link>
+            <Link
+              size="lg"
+              style="outline"
+              href="https://github.com/onionmill/stashpay/releases/latest"
+              class="flex gap-1 items-center justify-center">
+              🤖 Download APK
+            </Link>
+          </div>
+        </div>
+
+        <!-- Right Column: Phone Screenshot -->
+        <div class="flex-1 flex justify-center lg:justify-end">
+          <div class="relative pt-8 lg:pt-16">
+            <Picture
+              src={phoneScreenshot}
+              alt="StashPay App Screenshot"
+              width={242}
+              height={522}
+              loading="eager"
+              format="avif"
+              class="rounded-lg shadow-[0px_16px_32px_-8px_rgba(12,12,13,0.4)] max-w-[200px] lg:max-w-[242px]"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="text-center py-12">
+      <p class="text-sm text-gray-900">
+        Copyright © 2025 Onion Mill LLC. All rights reserved.
+      </p>
+    </footer>
+  </div>
 </Layout>

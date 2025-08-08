@@ -87,3 +87,4 @@ The project appears configured for deployment to `stashpay.me` domain with:
 - The homepage is simplified compared to typical Astroship setup (only shows Hero component)
 - Social media handles in Layout.astro still reference template defaults (@surjithctly, @web3templates)
 - Claude Code package is included as dev dependency for development assistance
+- reboot-astro-server: the astro server is throwing this error "ERR_CONNECTION_REFUSED" ensure the local server is running correctly
